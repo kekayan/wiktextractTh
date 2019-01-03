@@ -710,7 +710,11 @@ def parse_text(word, text, ctx):
     # print(wordss)
     key = None
     data = {}
-    data["word"] = wordss[0]
+    try:
+        parsed = wtp.parse(wordss[0])
+        data["word"] = parsed.templates[0].arguments[0].value
+    except:
+        data["word"] = wordss[0]
     syno=[]
     anto=[]
     hypo=[]
