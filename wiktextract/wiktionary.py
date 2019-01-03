@@ -792,6 +792,7 @@ def parse_text(word, text, ctx):
 
     with open("Output.txt", "a+") as text_file:
         text_file.write(json.dumps(data))
+        text_file.write('\n')
 
 
 
