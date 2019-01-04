@@ -707,8 +707,11 @@ def parse_text(word, text, ctx):
     # print(word)
 
     wordss=[s.strip() for s in text.splitlines() if s]
-    if re.sub(r'[^\w]', ' ', wordss[1]).strip()!="English":
-        return
+    try:
+        if re.sub(r'[^\w]', ' ', wordss[1]).strip()!="English":
+            return
+    finally:
+        print(wordss[1])
     # print(wordss)
     key = None
     data = {}
