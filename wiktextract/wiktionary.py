@@ -707,6 +707,8 @@ def parse_text(word, text, ctx):
     # print(word)
 
     wordss=[s.strip() for s in text.splitlines() if s]
+    if re.sub(r'[^\w]', ' ', wordss[1]).strip()!="English":
+        return
     # print(wordss)
     key = None
     data = {}
@@ -715,6 +717,9 @@ def parse_text(word, text, ctx):
         data["word"] = parsed.templates[0].arguments[0].value
     except:
         data["word"] = wordss[0]
+    finally:
+        if not data["word"]:
+            data["word"] = wordss[0]
     syno=[]
     anto=[]
     hypo=[]
