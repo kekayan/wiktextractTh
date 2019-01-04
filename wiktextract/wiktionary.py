@@ -710,8 +710,8 @@ def parse_text(word, text, ctx):
     try:
         if re.sub(r'[^\w]', ' ', wordss[1]).strip()!="English":
             return
-    finally:
-        print(wordss[1])
+    except:
+        print("error")
     # print(wordss)
     key = None
     data = {}
